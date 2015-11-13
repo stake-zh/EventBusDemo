@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EventBus.getDefault().register(this);
+        EventBus.getDefault().post(new Event("test"));
     }
 
     @Override
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     static class Event {
-        String msg;
+        private String msg;
+
+        public Event(String msg) {
+            this.msg = msg;
+        }
     }
 }
